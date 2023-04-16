@@ -1,4 +1,6 @@
-
+<pre>
+    <%= JSON.stringify(item,null,5) %>
+</pre>
 <form method="POST" action="/transaction/update">
     <input type="hidden" name="itemId" value="<%= item._id %>">
     <label for="description">New description: </label>

@@ -11,7 +11,6 @@ this is a very simple server which maintains a key/value
 store using an object where the keys and values are lists of strings
 
 */
-
 isLoggedIn = (_,res,next) => {
     if (res.locals.loggedIn) {
       next()
@@ -24,8 +23,8 @@ isLoggedIn = (_,res,next) => {
 router.get('/transaction/', 
     isLoggedIn,
     async (req, res) => {
-        let transactions
         res.locals.group = false
+        let transactions
         if (req.query.groupBy == 'category') {
             transactions = await transaction.aggregate([
                 {
@@ -53,7 +52,7 @@ router.get('/transaction/',
         else {
             transactions = await transaction.find({userId:req.user._id})
         }
-            res.render('transaction', {transactions})
+        res.render('transaction', {transactions})
 })
 
 

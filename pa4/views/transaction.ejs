@@ -52,13 +52,11 @@
 <%} else {%>
 <li><a href="/transaction">transaction table</a></li>
 <table class="table table-striped table-bordered">
-    <th>category</th>
-    <th>amount</th>
-    <% transactions.forEach((transaction => { %>
+    <% transactions.map(transaction => { %>
         <tr>
             <td><%= transaction._id%></td>
             <td><%= transaction.total %></td>
         </tr>
-   <% }))%>
+   <% })%>
 </table>
 <%}%>
